@@ -1,4 +1,4 @@
-FROM php:8.2-alpine
+FROM php:8.5-alpine
 
 LABEL maintainer="Sami Hellsten"
 
@@ -19,8 +19,8 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
     && mv composer.phar /usr/bin/composer \
     && chmod +x /usr/bin/composer
 
-ENV COMPOSER_ALLOW_SUPERUSER 1
-ENV PATH "$PATH:/root/.composer/vendor/bin"
+ENV COMPOSER_ALLOW_SUPERUSER=1
+ENV PATH="$PATH:/root/.composer/vendor/bin"
 
 WORKDIR /app
 
